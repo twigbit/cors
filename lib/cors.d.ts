@@ -1,4 +1,4 @@
-import { ClientRequest, ServerResponse } from "node:http";
+import { IncomingMessage, ServerResponse } from "node:http";
 
 export type CorsOptions = {
   /**
@@ -11,10 +11,10 @@ export type CorsOptions = {
   readonly allowOrigin?: (origin: string) => boolean;
 };
 
-export type FnHandler = (
-  req: ClientRequest,
-  resp: ServerResponse
-) => void | Promise<void>;
+export type FnHandler<
+  Req extends IncomingMessage,
+  Res extends ServerResponse
+> = (req: Req, resp: Res) => void | Promise<void>;
 
 /**
  * The default behavior (when leaving the options empty) is to allow
@@ -23,4 +23,7 @@ export type FnHandler = (
  * only one needs to match for the request to be allowed. The predicate
  * `allowOrigin` is only executed, if no entry in `allowedOrigins` matches.
  */
-export function cors(fn: FnHandler, options?: CorsOptions): FnHandler;
+export function cors<Req, Res>(
+  fn: FnHandler<Req, Res>,
+  options?: CorsOptions
+): FnHandler<Req, Res>;
