@@ -12,7 +12,8 @@
   "scripts": {
     "build": "tsc",
     "test": "ava",
-    "prepublishOnly": "npm test && npm run build"
+    "prerelease": "npm test && npm run build",
+    "release": "git commit -am \"Release $npm_package_version\" && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
