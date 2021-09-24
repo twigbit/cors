@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "types",
+    "target": "es5",
+    "module": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "noEmitOnError": true,
+    "lib": ["es5", "es6"]
+  },
+  "include": ["lib"],
+  "exclude": ["node_modules"]
+}

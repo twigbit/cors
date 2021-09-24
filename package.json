@@ -3,10 +3,16 @@
   "version": "0.2.0",
   "description": "Tiny cors helper for function environments (we use it for firebase functions and vercel)",
   "type": "module",
-  "exports": "./lib/index.mjs",
-  "types": "./lib/index.d.ts",
+  "exports": "./lib/index.js",
+  "types": "./types/index.d.ts",
+  "files": [
+    "lib",
+    "types"
+  ],
   "scripts": {
-    "test": "ava"
+    "build": "tsc",
+    "test": "ava",
+    "prepublishOnly": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -25,6 +31,10 @@
     "ESM"
   ],
   "devDependencies": {
-    "@types/node": "^16.7.10"
+    "@types/node": "^16.9.6",
+    "@types/sinon": "^10.0.3",
+    "ava": "^3.15.0",
+    "sinon": "^11.1.2",
+    "typescript": "^4.4.3"
   }
 }
