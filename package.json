@@ -1,6 +1,6 @@
 {
   "name": "@twigbit/cors",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Tiny cors helper for function environments (we use it for firebase functions and vercel)",
   "type": "module",
   "exports": "./lib/index.js",
